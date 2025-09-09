@@ -1,0 +1,9 @@
+discord.py>=2.3.2
+Flask>=2.1
+Flask-Login>=0.6
+SQLAlchemy>=1.4
+python-dotenv>=1.0
+alembic>=1.11  # 使う予定なら
+psycopg2-binary>=2.9  # PostgreSQL を使う場合（なくてもOK）
+pymysql>=1.0  # MySQL を使う場合（なくてもOK）
+watchdog>=3.0

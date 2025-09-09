@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>荒らし対策設定 | Discord Bot 管理画面</title>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        <h1>荒らし対策設定</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="warn_threshold">警告閾値:</label>
+                <input type="number" id="warn_threshold" name="warn_threshold" value="{{ settings.warn_threshold }}">
+            </div>
+            <div class="form-group">
+                <label for="delete_threshold">削除閾値:</label>
+                <input type="number" id="delete_threshold" name="delete_threshold" value="{{ settings.delete_threshold }}">
+            </div>
+            <div class="form-group">
+                <label for="mute_threshold">mute閾値:</label>
+                <input type="number" id="mute_threshold" name="mute_threshold" value="{{ settings.mute_threshold }}">
+            </div>
+            <div class="form-group">
+                <label for="kick_threshold">kick閾値:</label>
+                <input type="number" id="kick_threshold" name="kick_threshold" value="{{ settings.kick_threshold }}">
+            </div>
+            <div class="form-group">
+                <label for="mute_duration">mute時間(秒):</label>
+                <input type="number" id="mute_duration" name="mute_duration" value="{{ settings.mute_duration }}">
+            </div>
+            <button type="submit">保存</button>
+        </form>
+        {% endblock %}
+    </div>
+</body>
+</html>
