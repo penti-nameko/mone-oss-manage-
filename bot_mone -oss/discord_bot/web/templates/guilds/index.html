@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サーバー一覧 | Discord Bot 管理画面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>サーバー一覧</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard.index') }}">ダッシュボード</a></li>
+                <li><a href="{{ url_for('auth.login') }}">ログイン</a></li>
+                <li><a href="{{ url_for('auth.register') }}">登録</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>参加しているギルド</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名前</th>
+                    <th>オーナー</th>
+                    <th>詳細</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for guild in guilds %}
+                    <tr>
+                        <td>{{ guild.id }}</td>
+                        <td>{{ guild.name }}</td>
+                        <td>{{ guild.owner_id }}</td>
+                        <td><a href="/guild/{{ guild.id }}">詳細</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">参加しているギルドはありません。</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2023 Discord Bot Project</p>
+    </footer>
+</body>
+</html>
